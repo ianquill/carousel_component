@@ -1,0 +1,8 @@
+.carousel-component {
+  display: flex;
+  width: 500px;
+}
+
+.carousel-img {
+  width: 500px;
+}

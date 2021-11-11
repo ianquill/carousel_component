@@ -1,20 +1,29 @@
-import(
-    /* webpackPrefetch: true */
-    './images'
-).then(images => console.log(images.default)).catch((err) => console.error(err));
+import lazyLoadImage from './lazyLoadImage';
+import generateImage from './generateImage';
+import getImageNames from './getImageNames';
+import carouselStyle from './carousel_style.css';
 
-// function importAll(r) {
-//     const images = {};
-//     r.keys().map((item, index) => { 
-//         images[item.replace('./', '')] = r(item); 
-//     });
-//     return images;
-// }
-// const imageCache = importAll(require.context('./images', true, /\.jpg\.JPG\.svg\.png$/));
 
 class Carousel extends HTMLElement {
     constructor() {
         super();
+
+        this.classList.add('carousel-component');
+
+        // ********** todo **************
+        // -- make an array, get image names of all, individually load the current one being presented
+        // -- create buttons in constructor
+
+        this.img = generateImage(this, 'cat.jpg');
+        this.img.classList.add('carousel-img');
+        
+        this.appendChild(this.img);
+
+        // ********* FUNCTION TO IMPORT ALL IMAGES *********
+        // import(
+        //     /* webpackPrefetch: true */
+        //     './images'
+        // ).then(images => console.log(images.default)).catch((err) => console.error(err));
         
         console.log('hello world');
 
