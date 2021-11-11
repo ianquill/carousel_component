@@ -2,6 +2,7 @@
 
  module.exports = {
    entry: './src/index.js',
+   devtool: 'inline-source-map',
    output: {
      filename: 'bundle.js',
      path: path.resolve(__dirname, 'dist'),
@@ -16,6 +17,13 @@
         test: /\.css$/i,
 
         use: ['style-loader', 'css-loader'],
+
+      },
+      {
+
+        test: /\.(png|svg|JPG|jpg|jpeg|gif)$/i,
+
+        type: 'asset/resource',
 
       },
 
