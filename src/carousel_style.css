@@ -1,6 +1,7 @@
 .carousel-component {
   display: flex;
   width: 500px;
+  height: 500px;
 }
 
 .carousel-img {

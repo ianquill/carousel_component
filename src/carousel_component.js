@@ -10,9 +10,6 @@ class Carousel extends HTMLElement {
 
         this.classList.add('carousel-component');
 
-        // ********** todo **************
-        // -- make an array, get image names of all, individually load the current one being presented
-        // -- give buttons functionality
 
         // ** TEMP **
         this.img = generateImage(this, 'cat.jpg');
