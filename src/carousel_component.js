@@ -39,8 +39,27 @@ class Carousel extends HTMLElement {
             this.shiftIndex(1);
             this.refresh();
         }
+
+        // create indicators for image selection
+        this.indicatorContainer = document.createElement('div');
+        this.indicatorContainer.classList.add('carousel-overlay', 'carousel-indicator-container');
+        this.images.forEach(image => {
+            const indicator = document.createElement('input');
+            indicator.type = 'button';
+            indicator.classList.add(
+                'carousel-button',
+                // 'carousel-overlay',
+                'carousel-indicator'
+                );
+                indicator.value = '.';
+                indicator.onclick = () => {
+                    this.clickIndicator(this.images.indexOf(image));
+                };
+                this.indicatorContainer.appendChild(indicator);        
+        });
+        this.indicators = this.indicatorContainer.querySelectorAll('input');
         
-        this.append(this.buttonLeft, this.img, this.buttonRight);
+        this.append(this.buttonLeft, this.img, this.indicatorContainer, this.buttonRight);
 
         // ********* FUNCTION TO IMPORT ALL IMAGES *********
         // import(
@@ -53,7 +72,9 @@ class Carousel extends HTMLElement {
     }
 
     refresh() {
-        this.img.src = lazyLoadImage(this.images[this.currentIndex], this.img); 
+        this.img.src = lazyLoadImage(this.images[this.currentIndex], this.img);
+        this.clearIndicators();
+        this.activateIndicator(this.indicators[this.currentIndex]); 
     }
 
     shiftIndex(arg) {
@@ -64,6 +85,21 @@ class Carousel extends HTMLElement {
             this.currentIndex = this.images.length-1;
         }
         console.log(this.currentIndex);
+    }
+
+    clickIndicator(index) {
+        this.currentIndex = index;
+        this.refresh();
+    }
+
+    clearIndicators() {
+        this.indicators.forEach(indicator => {
+            indicator.classList.remove('active');
+        });
+    }
+
+    activateIndicator(indicator) {
+        indicator.classList.add('active');
     }
 
 }

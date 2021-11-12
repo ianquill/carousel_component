@@ -12,14 +12,11 @@ Add a <carousel-component><carousel-component> to your html.
 
 ### TO DO:
 
-- shift buttons to left and right of inner edge of image
-  - lower opacity
-
-* figure out what to do about resizing (keep original image ratio)
+- figure out what to do about resizing (keep original image ratio)
   - maybe add blank space (letterbox)
-* AwesomeFont or NerdFont icon for arrows
+- AwesomeFont or NerdFont icon for arrows
   - only import what's necessary!!!
-* add circle indicators at bottom
+- add circle indicators at bottom
 
 #### Maybe?
 
