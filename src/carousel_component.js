@@ -21,8 +21,10 @@ class Carousel extends HTMLElement {
 
         this.buttonLeft = document.createElement('input');
         this.buttonRight = document.createElement('input');
-        this.buttonLeft.classList.add('button');
-        this.buttonRight.classList.add('button');
+        this.buttonLeft.classList.add('carousel-button', 'carousel-overlay');
+        this.buttonRight.classList.add('carousel-button', 'carousel-overlay');
+        this.buttonLeft.id = 'carousel-leftbutton';
+        this.buttonRight.id = 'carousel-rightbutton';
         this.buttonLeft.type = 'button';
         this.buttonRight.type = 'button';
         this.buttonLeft.value = '<';
@@ -38,7 +40,7 @@ class Carousel extends HTMLElement {
             this.refresh();
         }
         
-        this.append(this.img, this.buttonLeft, this.buttonRight);
+        this.append(this.buttonLeft, this.img, this.buttonRight);
 
         // ********* FUNCTION TO IMPORT ALL IMAGES *********
         // import(
